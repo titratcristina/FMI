@@ -63,7 +63,7 @@ parcurgere:
 	 	syscall
 	 	
 	 	addi $t0, $t0, 1
-	 	addi $s0, $t0, 4
+	 	addi $s0, $s0, 4
 	 	
 	 	j for
 	 	
