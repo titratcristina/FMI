@@ -4,6 +4,43 @@
 # procedura suma_cifrelor_para, avand definitia:
 # evalueaza(*v, n, x, y, z) ≔ ∑(1 − suma_cifrelor_para(v[i])) * (v[i] mod x + (y − [z/3] + i)^3)
 
+.data
+	n: .space 4
+	x: .word 2
+	y: .word 3
+	z: .word 4
+	v: .space 100 
+	sp : .asciiz " "
+
+.text
+main:
+	li $v0, 5
+	syscall
+	
+	sw $v0, n
+	lw $t0, n
+	li $t1, 0
+	
+	loop_read:
+		beqz $t0 cont
+		li $v0, 5
+		syscall
+		sw $v0, v($t1)
+
+		sub $t0, $t0, 1
+		add $t1, $t1, 4
+		
+		j loop_read
+
+cont:
+	
+	# work in progress
+	
+	jal evalueaza
+	
+	li $v0, 10
+	syscall
+
 
 evalueaza:
 	subu $sp, $sp, 4
