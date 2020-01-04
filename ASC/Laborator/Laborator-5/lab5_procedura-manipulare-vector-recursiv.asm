@@ -55,7 +55,7 @@ modificare:
 	
 	# incrementarea unui element si salvarea sa
 	lw $t0, 0($sp)
-	addi $t0, $t0 1
+	addi $t0, $t0, 1
 	sw $t0, 0($sp)
 	
 	addi $s0, $s0, 4
@@ -77,6 +77,6 @@ exit:
 	lw $ra,	-8($fp)
 	lw $fp, -4($fp)
 	
-	addu $sp, $sp, 12
+	addu $sp, $sp, 16
 	
 	jr $ra
