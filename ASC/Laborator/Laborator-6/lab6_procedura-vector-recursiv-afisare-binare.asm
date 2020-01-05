@@ -58,7 +58,7 @@ parcurgere:
 	 	jal afisare_binara
 	 	addu $sp, $sp, 4
 
-	 	li $a0, '\n'
+	 	li $a0, ' '
 	 	li $v0, 11
 	 	syscall
 	 	
