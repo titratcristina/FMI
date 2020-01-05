@@ -53,9 +53,9 @@ modifica:
 	beqz $s1, exit
 	
 	# incrementarea unui element si salvarea sa
-	lw $t0, 0($sp)
+	lw $t0, 0($s0)
 	addi $t0, $t0, 1
-	sw $t0, 0($sp)
+	sw $t0, 0($s0)
 	
 	addi $s0, $s0, 4
 	addi $s1, $s1, -1
