@@ -47,8 +47,8 @@ modificare:
 	# $sp: ($s1v)($s0v)($rav)($fvv) $fp:(v)(n)
 	#	-16   -12    -8    -4       0	
 	
-	lw $s0, 0($fp)
-	lw $s1, 4($fp)
+	lw $s0, 0($fp)	# *v
+	lw $s1, 4($fp)	# n
 	
 	beqz $s1, exit
 	
