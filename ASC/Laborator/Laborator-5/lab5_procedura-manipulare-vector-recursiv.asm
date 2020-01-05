@@ -57,6 +57,16 @@ modifica:
 	addi $t0, $t0, 1
 	sw $t0, 0($s0)
 	
+	# print element
+	lw $a0, 0($s0)
+	li $v0, 1
+	syscall
+	
+	# print space
+	la $a0, ' '
+	li $v0, 11
+	syscall
+	
 	addi $s0, $s0, 4
 	addi $s1, $s1, -1
 	
