@@ -17,7 +17,7 @@ main:
 	subu $sp, $sp, 4
 	sw $t0, 0($sp)
 	
-	jal modificare
+	jal modifica
 	
 	addu $sp, $sp, 8
 	
@@ -25,7 +25,7 @@ main:
 	li $v0, 10
 	syscall
 	
-modificare:
+modifica:
 	# push $fp pe stiva
 	subu $sp, $sp, 4
 	sw $fp, 0($sp)
@@ -45,7 +45,7 @@ modificare:
 	sw $s1, 0($sp)
 	
 	# $sp: ($s1v)($s0v)($rav)($fvv) $fp:(v)(n)
-	#	-16   -12    -8    -4       0	
+	#	-16   -12    -8    -4        0	4
 	
 	lw $s0, 0($fp)	# *v
 	lw $s1, 4($fp)	# n
@@ -66,7 +66,7 @@ modificare:
 	subu $sp, $sp, 4
 	sw $s0, 0($sp)
 	
-	jal modificare
+	jal modifica
 	
 	addu $sp, $sp, 8
 
