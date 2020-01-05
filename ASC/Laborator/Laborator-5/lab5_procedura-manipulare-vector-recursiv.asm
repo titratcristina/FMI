@@ -4,7 +4,6 @@
 .data
 	v: .word 3, 4, 5
 	n: .word 3
-	ch: .byte ' '
 
 .text
 main:
