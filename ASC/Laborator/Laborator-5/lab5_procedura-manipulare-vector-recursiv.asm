@@ -21,9 +21,29 @@ main:
 	
 	addu $sp, $sp, 8
 	
-	# exit
-	li $v0, 10
-	syscall
+	lw $t0, n		# in $t0 retinem dimensiunea
+	li $t1, 0		# $t1 este contorul obisnuit
+	li $t2, 0		# $t2 creste din 4 in 4
+	
+	loop: 
+		bge $t1, $t0, exit	# conditia de iesire, cand i >= n
+		
+		lw $a0, v($t2)		# se incarca in $a0 elementul curent v($t2) <=> v[i]
+		li $v0, 1		# 1 - PRINT INT
+		syscall
+		
+		la $a0, ' '
+		li $v0, 11
+		syscall
+		
+		addi $t2, $t2, 4	# $t2 crest4e din 4 in 4 pentru a accesa memoria
+		addi $t1, $t1, 1	# $t1 se incrementeaza standard
+		
+		j loop			# se revine la loop
+	
+	exit:
+		li $v0, 10		# codul pentru exit
+		syscall
 	
 modifica:
 	# push $fp pe stiva
@@ -50,7 +70,7 @@ modifica:
 	lw $s0, 0($fp)	# *v
 	lw $s1, 4($fp)	# n
 	
-	beqz $s1, exit
+	beqz $s1, exit_modifica
 	
 	# incrementarea unui element si salvarea sa
 	lw $t0, 0($s0)
@@ -58,17 +78,17 @@ modifica:
 	sw $t0, 0($s0)
 	
 	# print element
-	lw $a0, 0($s0)
-	li $v0, 1
-	syscall
+	#lw $a0, 0($s0)
+	#li $v0, 1
+	#syscall
 	
 	# print space
-	la $a0, ' '
-	li $v0, 11
-	syscall
+	#la $a0, ' '
+	#li $v0, 11
+	#syscall
 	
 	addi $s0, $s0, 4
-	addi $s1, $s1, -1
+	subu $s1, $s1, 1
 	
 	subu $sp, $sp, 4
 	sw $s1, 0($sp)
@@ -80,7 +100,7 @@ modifica:
 	
 	addu $sp, $sp, 8
 
-exit:
+exit_modifica:
 	lw $s1, -16($fp)
 	lw $s0, -12($fp)
 	lw $ra,	-8($fp)
