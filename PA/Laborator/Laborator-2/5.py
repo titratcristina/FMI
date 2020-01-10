@@ -9,7 +9,7 @@ for caracter in sir:
     if caracter.isupper():
         sir_nou += chr((ord(caracter) + k - ord('A')) % 26 + ord('A'))
     elif caracter.islower():
-        sir_nou += chr((ord(caracter) + k - ord('a'))% 26 + ord('a'))
+        sir_nou += chr((ord(caracter) + k - ord(*'a'))% 26 + ord('a'))
     else:
         sir_nou += c
 
