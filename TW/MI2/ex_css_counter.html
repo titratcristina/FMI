@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            /* incepe de la 4 */
+            counter-reset: section 3 nr_elem 0;
+            /* nr_elem - cate elem sunt in body */
+        }
+
+        body * {
+            counter-increment: nr_elem;
+        }
+
+        body:after {
+            content: "Nr. elem. "counter(nr_elem) ". ";
+        }
+
+        h1 {
+            counter-reset: subsection;
+        }
+
+        h1::before {
+            counter-increment: section;
+            content: "Section "counter(section) ". ";
+            color: green;
+        }
+
+        h2::before {
+            /* subsectiunile cresc din 2 in 2 */
+            counter-increment: subsection 2;
+            content: counter(section) "."counter(subsection) " ";
+            color: blue;
+        }
+
+        /* De ce nu se poate pune resetarea counterului section direct in stiulul lui h1?  */
+        /* Se va reseta la fiecare h1 counter-ul si ar fi 1 peste tot */
+    </style>
+</head>
+
+<body>
+
+
+    <h1>HTML tutorials:</h1>
+    <h2>HTML Tutorial</h2>
+    <h2>CSS Tutorial</h2>
+
+    <h1>Scripting tutorials:</h1>
+    <h2>JavaScript</h2>
+    <h2>VBScript</h2>
+
+    <h1>XML tutorials:</h1>
+    <h2>XML</h2>
+    <h2>XSL</h2>
+
+    <p><b>Note:</b> IE8 supports these properties only if a !DOCTYPE is specified.</p>
+
+</body>
+
+</html>
