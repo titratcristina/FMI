@@ -1,36 +1,30 @@
-body {
-    background-color: #EEEEEE;
-    padding-left: 50px;
-    padding-right: 5px;
-    background-image: url('http://irinaciocan.ro/imagini/gri.png'),
-        url('http://www.irinaciocan.ro/tehnici_web/imagini/carouri.png'),
-        url('http://irinaciocan.ro/tehnici_web/imagini/mazgaleala.png');
-    background-repeat: repeat-y, repeat, repeat;
-    background-position: 40px 0, -10px -10px, 0 0;
-}
-
+/* 15 */
 #orange {
     color: orange;
     font-weight: bold;
     text-decoration: underline overline;
 }
 
+/* 5 */
 p {
     color: green;
     font-family: 'Comic Sans MS';
 }
 
+/* 6 */
 h1 {
     color: red;
     text-decoration: underline;
 }
 
+/* 8 */
 /* imediat dupa */
 h3+p {
     border: 2px dotted blue;
     color: fuchsia;
 }
 
+/* 9 */
 /* paragrafele surori cu h3 */
 h3~p {
     color: rgb(0, 95, 76);
@@ -38,37 +32,44 @@ h3~p {
     background-attachment: fixed;
 }
 
+/* 10 */
 .c1 {
     background-color: violet;
 }
 
+/* 11 13 */
 .c2 {
     font-style: italic;
     background-color: yellow;
     text-decoration: line-through;
 }
 
+/* 12 */
 h3.c3 {
     background-color: orange;
     font-variant: uppercase;
 }
 
+/* 12 */
 .c3 {
     background-color: lime;
     font-variant: small-caps;
     text-decoration: overline;
 }
 
+/* 14 */
 .c2.c3 {
     font-style: normal;
     color: rgb(220, 20, 60);
 }
 
+/* 16 */
 /* fii din tot arborele */
 #abc p {
     box-shadow: red 10px 10px 5px;
 }
 
+/* 17 */
 /* fii directi */
 #abc>p {
     box-shadow: green 10px 10px 5px;
@@ -88,10 +89,12 @@ p[title]::first-letter {
     font-size: 20px;
 }
 
+/* 20 */
 p[title="altceva"]:hover {
     color: pink;
 }
 
+/* 21 */
 p[title="altceva"]:hover+* {
     visibility: hidden;
 }
@@ -109,17 +112,20 @@ ol li:nth-child(even) {
     text-align: right;
 }
 
+/* 24 */
 section:first-of-type {
     border-top: green 4px dashed;
     border-left: green 4px dashed;
 }
 
+/* 25 */
 /* :nth-child(1) */
 /* genereaza inaintea primului paragraf */
 section>:first-child:after {
     content: 'primul';
 }
 
+/* 26 */
 /* se pune before pentru fiecare */
 h1:before,
 h2:before,
@@ -127,16 +133,18 @@ h3:before {
     content: url('http://irinaciocan.ro/imagini/foarte_zambaret.png')
 }
 
+/* 27 */
 /* selector de atribute, not merge doar cu selectori simpli (nu se pune cu virgula) */
 p:not([class]):not([id]) {
     cursor: crosshair;
 }
 
+/* 28 */
 * {
     outline: 2px blue dashed;
 }
 
+/* 29 */
 section#abc:hover>section>p:not([title])+p {
     letter-spacing: 15px;
 }
-
