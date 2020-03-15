@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MI1-2</title>
+</head>
+
+<body>
+    <!-- calea absolută de pe macOS este diferită de cea de pe windows -->
+    <a href="/Users/cristina/Github/FMI/TW/MI1/ex_mi_img_a_iframe/F1/F2/F3/imag.png"> Cale absolută </a>
+    <br />
+    <a href="../a.html"> Cale relativă </a>
+    <br />
+    <a href="https://www.google.com/"> Google </a>
+    <br />
+    <iframe src="../a.html"></iframe>
+    <br />
+
+    <!-- nu merge din cauză că au folosit X-Frame-Options (PE SERVER) care poate restrictiona încorporarea în frame-uri a paginilor (o măsură anti hot-linking similară cu restricțiile de refferal) -->
+    <iframe src="https://www.google.com/"></iframe>
+
+    <!-- merge din cauză că nu au expus headerul X-Frame-Options sau nu au restricționat url-urile care pot încorpora -->
+    <iframe src="http://fmi.unibuc.ro/ro/"></iframe>
+    <br />
+    <video width=200 height=200 controls="controls">
+        <source src="http://irinaciocan.ro/tehnici_web/video/ex_mi_roata_parc.mp4" type="video/mp4">
+    </video>
+    <audio controls="controls">
+        <source src="http://irinaciocan.ro/tehnici_web/audio/test.ogg" type="audio/ogg">
+    </audio>
+    
+</body>
+</html>
