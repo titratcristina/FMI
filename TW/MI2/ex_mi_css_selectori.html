@@ -31,13 +31,14 @@
         }
 
         /* 4 */
-        /* tr>*:first-child {
-            text-decoration: underline;
-        } */
         th:first-child,
         td:first-child {
             text-decoration: underline;
         }
+
+        /* tr>*:first-child {
+            text-decoration: underline;
+        } */
 
         /* 5 */
         caption {
@@ -54,8 +55,8 @@
 
         /* 7 */
         ol {
-            counter-reset: count;
             list-style: none;
+            counter-reset: count;
             padding: 0px;
             margin: 15px;
         }
@@ -74,17 +75,31 @@
         }
 
         /* 8 */
-        tr td:nth-child(even)::first-letter {
-            background: lightblue;
+        tbody tr td:nth-of-type(even)::first-letter {
+            background-color: lightblue;
         }
 
-        tr td:nth-child(odd)::first-letter {
-            background: pink;
+        tbody tr td:nth-of-type(odd)::first-letter {
+            background-color: pink;
         }
 
-        tr td ol:first-letter{
-			background: none;
-			}
+        tbody tr td ol::first-letter {
+            background-color: unset;
+        }
+
+        /* 9 */
+        a:hover {
+            font-size: 20px;
+        }
+
+        a:active {
+            background-color: yellow;
+        }
+
+        /* 10 */
+        div:nth-of-type(-n+3) {
+            letter-spacing: -3px;
+        }
     </style>
 </head>
 
@@ -198,6 +213,9 @@
         <p>paragraf</p>
         <p>paragraf</p>
     </div>
+
+    <!-- 9 -->
+    <a href="https://google.com">Link Google</a>
 </body>
 
 </html>
