@@ -1,0 +1,32 @@
+/* orice div din pagina sa aiba display inline si observati ca se afiseaza acum pe un singur rand. */
+div {
+    display: inline;
+}
+
+/* orice span din pagina sa aiba background rosu, width de 70px si height de 50 px. 
+Se aplica width si height? De ce? Tineti cont ca elementul span are in mod implicit display-ul inline. 
+Nu se aplica */
+span {
+    background-color: red;
+    width: 70px;
+    height: 50px;
+}
+
+/* in paragraful cu id-ul a faceti ca span-ul sa aiba display block. 
+Cum se afiseaza fata de restul continutului paragrafului? Se aplica width si height acum? 
+Spanul se duce pe un rand nou si acum paragraful este impartit pe 3 linii. Acum se aplica width si height */
+#a span {
+    display: block;
+}
+
+/* in paragraful cu id-ul b faceti ca span-ul sa aiba display inline-block. 
+Cum se afiseaza fata de restul continutului paragrafului? Se aplica width si height acum? De ce apare o spatiere sub paragraf? 
+Acum paragraful nu mai este impartit pe 3 linii. Da, se aplica width si height. Acel spatiu de sub paragraf este marginea implicita a tagului p */
+#b span {
+    display: inline-block;
+}
+
+/* Folositi valoarea corespunzatoare pentru proprietatea display astfel incat sa nu se mai afiseze span-ul din al treilea paragraf. */
+#c span {
+    display: none;
+}
