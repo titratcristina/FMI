@@ -1,0 +1,36 @@
+/* Realizati in patru moduri centrarea unui div in container (atat orizontal cat si vertical). 
+Sugestii: */
+
+/* 1 (divul de centrat: inline-block, folosim vertical-align (gasiti o metoda de a creste line-height-ul) si text-center) */
+/* I'm not sure of this one */
+div.container#c0 {
+    vertical-align: middle;
+    text-align: center;
+}
+
+#c0 .dv {
+    display: inline-block;
+    margin-top: 50px;
+}
+
+/* 2 (margin pentru orizontala si top pentru verticala) */
+#c1 .dv {
+    margin: 50px auto 0 auto;
+}
+
+/* 3 (container cu display flex si aliniere centrata pentru verticala, si margin pentru orizontala) */
+div.container#c2 {
+    display: flex;
+}
+
+#c2 .dv {
+    margin: auto;
+    vertical-align: center;
+}
+
+/* 4 (display flex pentru container si alinierile pe verticala si orizontala se fac doar cu proprietati ce tin de flex) */
+div.container#c3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
