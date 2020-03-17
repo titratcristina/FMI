@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Contor</title>
+</head>
+
+<style>
+	#container {
+		width: 200px;
+		height: 200px;
+		border: 5px solid brown;
+		border-style: inset;
+		animation: bgcolor 5s infinite;
+	}
+
+	@keyframes bgcolor {
+		from {
+			background-color: blue;
+		}
+
+		to {
+			background-color: red;
+		}
+	}
+
+	#cronometru {
+		width: 100px;
+		height: 10px;
+		background-color: magenta;
+		animation: spin 5s infinite;
+	}
+
+	@keyframes spin {
+		from {
+			transform: rotate(0deg);
+		}
+
+		to {
+			transform: rotate(360deg);
+		}
+	}
+</style>
+
+<body>
+	<div id="container">
+		<div id="cronometru">
+
+		</div>
+		<div id="contor">
+			<div class="numar" id="nr5">5</div>
+			<div class="numar" id="nr4">4</div>
+			<div class="numar" id="nr3">3</div>
+			<div class="numar" id="nr2">2</div>
+			<div class="numar" id="nr1">1</div>
+			<div id="linie">
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
