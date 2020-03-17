@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .face {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            background-color: yellow;
+        }
+
+        .eyebrow {
+            width: 50px;
+            height: 10px;
+            background-color: darksalmon;
+            box-sizing: border-box;
+        }
+
+        div .eyebrow:nth-child(1) {
+            transform: rotate(-45deg);
+        }
+
+        div .eyebrow:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        .eye {
+            width: 25px;
+            height: 25px;
+            background-color: black;
+            border-radius: 100%;
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="face">
+        <div class="row">
+            <div class="eyebrow"></div>
+            <div class="eyebrow"></div>
+        </div>
+        <div class="row">
+            <div class="eye"></div>
+            <div class="eye"></div>
+        </div>
+    </div>
+</body>
+
+</html>
