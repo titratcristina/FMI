@@ -1,0 +1,7 @@
+table tbody tr::before {
+    content: "•"
+}
+
+table tbody td:not(:last-child):after {
+    content: ","
+}
