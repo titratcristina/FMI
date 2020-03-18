@@ -26,7 +26,8 @@ html {
 #coloane>section {
     border: 1px solid green;
     padding: 2px;
-    min-width: 100px;
+    min-width: 220px;
+    /* width: 25%; */
 }
 
 div#coloane {
@@ -35,13 +36,14 @@ div#coloane {
 
 /* Afisati cele 4 sectiuni din divul cu id-ul "coloane" pe 4 coloane egale 
 (aceasta va fi afisarea default). Indicatii: flex-direction:row, flex-basis, flex-grow. */
-#coloane {
+div#coloane {
     display: flex;
     flex-direction: row;
 }
 
-#coloane section {
+#coloane>section {
     flex-basis: 0;
+    /* spune de unde sa porneasca */
     flex-grow: 1;
     /* distribuie in mod egal [1][1][1] sau [1][ 2 ][1] */
 }
@@ -49,7 +51,6 @@ div#coloane {
 /* Introduceti cod css astfel incat, cand micsoram fereastra pe orizontala, 
 coloanele care nu mai au loc sa fie mutate dedesubt. Indicatii: flex-wrap */
 #coloane {
-    /* ------------- not working ------------- need help pls -------------*/
     flex-wrap: wrap;
     /* flex-direction: wrap; */
 }
@@ -67,6 +68,8 @@ coloana 1 pe a doua pozitie etc. In plus, coloana 4 va fi de 3 ori mai mare, in 
 decat restul. Indicatie: order. */
 #ord_3124:hover~#coloane section:nth-child(3) {
     order: -1;
+    /* -1 orderul cel mai mic -> deci se duce pe prima pozitie
+        0 orderul default */
 }
 
 #ord_3124:hover~#coloane section:nth-child(4) {
@@ -86,9 +89,18 @@ iar imaginile sa fie aliniate spre stanga. Indicatii: flex-direction:column, ali
 si vor fi aliniate la dreapta. Faceti astfel incat titlul sectiunii cu 
 imagini sa ramana aliniat la stanga si tot sus (nu sub imagini). 
 Indicatie: aling-items, align-self, order */
-#img_invers:hover~#coloane section#s_imag #imagini img {
-    /* pls tell me there is another way for selecting */
+
+/* pls tell me there is another way for selecting */
+#img_invers:hover~#coloane section#s_imag #imagini {
+    /* proprietati de container */
     flex-direction: column-reverse;
     align-items: flex-end;
-    align-self: flex-end;
 }
+
+#img_invers:hover~#coloane section#s_imag #imagini>h3 {
+    align-self: flex-start;
+    order: 1;
+}
+
+/* ">" fiu direct
+   " " toti fii */
