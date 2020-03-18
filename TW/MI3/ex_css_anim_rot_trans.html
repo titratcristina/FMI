@@ -16,6 +16,38 @@
             animation-timing-function: linear;
         }
 
+        .linie {
+            width: 200px;
+            height: 10px;
+            background-color: yellow;
+            animation: soare 10s infinite;
+        }
+
+        #prima_linie {
+            position: absolute;
+        }
+
+        #fereastra {
+            width: 500px;
+            height: 250px;
+            border: 7px solid brown;
+            border-style: inset;
+            background-color: black;
+            animation: fereastra 5s infinite;
+            animation-direction: alternate;
+            overflow-x: hidden;
+        }
+
+        @keyframes fereastra {
+            25% {
+                background-color: navy;
+            }
+
+            100% {
+                background-color: lightblue;
+            }
+        }
+
         @keyframes soare {
             /* prima animatie */
             /* from {
@@ -45,34 +77,6 @@
                 left: 500px;
                 top: 300px;
             }
-        }
-
-        #fereastra {
-            width: 500px;
-            height: 250px;
-            border: 7px solid brown;
-            border-style: inset;
-            background-color: black;
-            animation: fereastra 5s infinite;
-            animation-direction: alternate;
-            overflow-x: hidden;
-        }
-
-        @keyframes fereastra {
-            25% {
-                background-color: navy;
-            }
-
-            100% {
-                background-color: lightblue;
-            }
-        }
-
-        .linie {
-            width: 200px;
-            height: 10px;
-            background-color: yellow;
-            animation: soare 10s infinite;
         }
 
         .linie:nth-child(1) {
@@ -106,7 +110,7 @@
 
     <div id="fereastra">
         <div id="soare">
-            <div class="linie">
+            <div class="linie" id="prima_linie">
                 <div class="linie">
                     <div class="linie">
                         <div class="linie">
