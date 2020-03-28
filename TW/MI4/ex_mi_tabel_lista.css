@@ -1,3 +1,7 @@
+table thead tr::before {
+    content: ""
+}
+
 table tbody tr::before {
     content: "•"
 }
