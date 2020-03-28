@@ -12,7 +12,8 @@
             border-radius: 100%;
         }
 
-        #soare {
+        #soare,
+        .linie {
             animation-timing-function: linear;
         }
 
@@ -20,11 +21,13 @@
             width: 200px;
             height: 10px;
             background-color: yellow;
-            animation: soare 10s infinite;
+            animation: linii 10s infinite;
         }
 
         #prima_linie {
             position: absolute;
+            top: 50px;
+            left: -50px;
         }
 
         #fereastra {
@@ -64,18 +67,38 @@
                 background-color: red;
                 left: -170px;
                 top: 300px;
+                transform: rotate(0deg);
+
             }
 
             50% {
                 background-color: yellow;
                 left: 200px;
                 top: -70px;
+                transform: rotate(180deg);
+
             }
 
             100% {
                 background-color: red;
                 left: 500px;
                 top: 300px;
+                transform: rotate(360deg);
+
+            }
+        }
+
+        @keyframes linii {
+            0% {
+                background-color: red;
+            }
+
+            50% {
+                background-color: yellow;
+            }
+
+            100% {
+                background-color: red;
             }
         }
 
@@ -123,6 +146,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
 </body>
