@@ -3,6 +3,13 @@
 
 <head>
     <style>
+        #red-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: red;
+            display: none;
+        }
+
         .face {
             width: 200px;
             height: 200px;
@@ -33,32 +40,88 @@
             box-sizing: border-box;
         }
 
+        .eye:first-child,
+        .eyebrow:first-child {
+            margin-right: 10px;
+        }
+
+        .eye:nth-child(2),
+        .eyebrow:nth-child(2) {
+            margin-left: 10px;
+        }
+
         .row {
             display: flex;
+        }
+
+        .face:hover .row #red-text {
+            display: block;
+        }
+
+        .face:hover .row .eye {
+            animation: eyes 5s;
+            animation-timing-function: linear;
+        }
+
+        .face:hover .row .eyebrow:first-child {
+            animation: first-eyebrow 5s;
+            animation-timing-function: linear;
+        }
+
+        .face:hover .row .eyebrow:nth-child(2) {
+            animation: second-eyebrow 5s;
+            animation-timing-function: linear;
+        }
+
+        @keyframes first-eyebrow {
+            from {
+                transform: rotate(-45deg);
+            }
+
+            to {
+                transform: rotate(45deg);
+                background-color: black;
+            }
+        }
+
+        @keyframes second-eyebrow {
+            from {
+                transform: rotate(45deg);
+            }
+
+            to {
+                transform: rotate(-45deg);
+                background-color: black;
+            }
+        }
+
+        @keyframes eyes {
+            from {
+                background-color: black;
+                box-shadow: 0px 0px 7px 2px black inset;
+            }
+
+            to {
+                background-color: red;
+                box-shadow: 0px 0px 7px 2px black inset;
+            }
         }
     </style>
 
 </head>
 
 <body>
-    <!-- <div class="face">
-        <div class="row">
-            <div class="eyebrow"></div>
-            <div class="eyebrow"></div>
-        </div>
-        <div class="row">
-            <div class="eye"></div>
-            <div class="eye"></div>
-        </div>
-    </div> -->
     <div class="face" style="position: relative;">
-        <div class="row" style=" position: absolute; top: 50px; left: 50px;">
+        <div class="row" style=" position: absolute; top: 50px; left: 40px;">
             <div class="eyebrow"></div>
             <div class="eyebrow"></div>
         </div>
-        <div class="row" style="position: absolute; top: 70px; left: 75px;">
+        <div class="row" style="position: absolute; top: 80px; left: 65px;">
             <div class="eye"></div>
             <div class="eye"></div>
+        </div>
+        <div class="row" style="position: absolute; top: 200px; left: 30px;">
+            <p id="red-text">Lasă-mă în pace!</p>
         </div>
     </div>
 </body>
