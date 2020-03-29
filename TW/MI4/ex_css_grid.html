@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .grid-container {
+            display: grid;
+            /* Faceti gridul sa fie pe 4 coloane. 
+  Prima si ultima coloana sa aiba latime de 100px */
+            grid-template-columns: 100px auto auto 100px;
+            background-color: #2196F3;
+            padding: 10px;
+            /* Faceti astfel incat atat intre linii sa fie un spatiude 10px si intre coloane sa fie un spatiu de 8px */
+            grid-row-gap: 10px;
+            grid-column-gap: 8px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        /* Faceti astfel incat celula 1 sa se intinda pe 2 coloane (sa se intinda si pe coloana din dreapta) */
+        .grid-item:first-child {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        /* Faceti astfel incat celula 4 sa inceapa de pe randul 2 coloana 1 si sa se intinda pe 2 coloane si doua randuri (sa se intinda si pe coloana din dreapta si pe randul de jos). */
+        .grid-item:nth-child(4) {
+            grid-column: 1/3;
+            grid-row: 2/4;
+        }
+
+        /* Folosind grid-area, faceti astfel incat celula 12 sa inceapa pe randul 4 coloana 2 si sa se intinda pe 3 randuri si doua coloane (incercati folosind span) */
+        .grid-item:last-child {
+            /*grid-area: 4/2/8/4;*/
+            grid-area: 4 / 2 / span 2 / span 2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Grid Elements</h1>
+
+    <p>A Grid Layout must have a parent element with the <em>display</em> property set to <em>grid</em> or
+        <em>inline-grid</em>.</p>
+
+    <p>Direct child element(s) of the grid container automatically becomes grid items.</p>
+
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+        <!-- Mai adaugati celule astfel incat sa fie 12. -->
+        <div class="grid-item">10</div>
+        <div class="grid-item">11</div>
+        <div class="grid-item">12</div>
+    </div>
+
+</body>
+
+</html>
