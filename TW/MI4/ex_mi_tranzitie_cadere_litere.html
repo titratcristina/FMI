@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        div {
+            background-color: lightblue;
+            width: 500px;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        div span {
+            opacity: 0;
+            font-size: 50px;
+            padding: 30px;
+            display: inline-block;
+            transition: all 0.5s;
+            transform: translate3d(0, -50px, 0);
+        }
+
+        div:hover span:nth-of-type(1) {
+            transition-delay: 1s;
+        }
+
+        div:hover span:nth-of-type(2) {
+            transition-delay: 1.5s;
+        }
+
+        div:hover span:nth-of-type(3) {
+            transition-delay: 2s;
+        }
+
+        div:hover span {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>a</span>
+        <span>b</span>
+        <span>c</span>
+    </div>
+</body>
+
+</html>
