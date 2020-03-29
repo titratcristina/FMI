@@ -1,0 +1,81 @@
+/* Numararea listelor sa inceapa de la 3. 
+Numararea celor fara alibi sa porneasca de la 5.  */
+body {
+    background: skyblue;
+    counter-reset: section+2;
+}
+
+div#container {
+    margin-left: 15%;
+    margin-right: 15%;
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    background: white;
+    padding: 5%;
+    counter-reset: alibi+4;
+}
+
+li.fara_alibi {
+    color: red;
+    font-weight: bold;
+}
+
+/* Fiecare element din lista sa aiba inlocuit indicele item-ului 
+cu un indice de forma numar_lista.numar_element_in lista */
+ol {
+    counter-reset: subsection;
+    counter-increment: section;
+    list-style-type: none;
+}
+
+li::before {
+    /* Pentru suspectii fara alibi sa nu se afiseze cu rosu si litere aldine decat numele, nu si indicele. */
+    color: black;
+    font-weight: normal;
+    counter-increment: subsection;
+    /* Indicii elementelor din lista sa fie numerotati cu litere mici latine, nu cu numere. */
+    content: counter(section) "."counter(subsection, lower-alpha) " ";
+}
+
+/* Sa se calculeze folosind countere si sa se afiseze un continut generat 
+(proprietatea content) cu ajutorul fiecarui paragraf de dupa fiecare lista, 
+numarul total de elemente din lista. De asemenea, tipul de elemente din 
+lista se va lua prin CSS din id-ul paragrafului. */
+ol~p:before {
+    content: 'Total pisici: 'counter(subsection);
+}
+
+ol~p#soareci:before {
+    content: 'Total soareci: 'counter(subsection);
+}
+
+ol~p#papuci:before {
+    content: 'Total papuci: 'counter(subsection);
+}
+
+/* Fara a muta paragraful in HTML, sa se afiseze paragraful corespunzator 
+fiecarei liste inaintea listei */
+div.cont_lista {
+    display: flex;
+    flex-flow: column;
+}
+
+ol~p,
+ol~p#soareci,
+ol~p#papuci {
+    order: 1;
+    margin-bottom: 0;
+}
+
+ol {
+    order: 2;
+    margin: 0;
+}
+
+/* In dreptul fiecarui suspect fara alibi sa se afiseze, cu ajutorul CSS, dupa numele 
+acestuia imaginea delicvent si in paranteza al catelea suspect fara alibi este. */
+
+li.fara_alibi:after {
+    counter-increment: alibi;
+    content: url('http://irinaciocan.ro/tehnici_web/imagini/smiley_hot_mic_20x19.png') ' ('counter(alibi) ')';
+}
