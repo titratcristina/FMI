@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+        /* pentru ecran mare, 14px */
         html {
-            font-size: 16px;
+            font-size: 14px;
         }
 
         * {
@@ -52,11 +53,12 @@
         ul.menu>li,
         ul.menu>li>ul.submenu>li {
             display: block;
-
-            font-size: 1.2rem;
+            /* 1.2rem = 1.2 * font-size ul.menu = 1.2 * font-size li = 1.2em */
+            font-size: 1.2em;
             font-weight: bold;
-            height: 1.2rem;
-            line-height: 1.2rem;
+            /* 1.2rem = 1.2 * height ul.meniu = 1em */
+            height: 1em;
+            line-height: 1em;
             text-align: center;
             list-style-type: none;
             overflow: hidden;
@@ -80,14 +82,18 @@
             color: black;
         }
 
+        /* Adaugati tranzitii pe optiunile din meniu si submeniu, astfel incat trecerea de la 
+        roz/bleu la galben sa se faca treptat pentru optiunile peste care venim cu cursorul). */
         ul.menu>li:nth-of-type(even) a,
         ul.menu>li:nth-of-type(even) div {
             background: pink;
+            transition: background-color 3s;
         }
 
         ul.menu>li:nth-of-type(odd) a,
         ul.menu>li:nth-of-type(odd) div {
             background: lightblue;
+            transition: background-color 3s;
         }
 
         ul.menu>li>ul.submenu {
@@ -112,10 +118,14 @@
             overflow: visible;
         }
 
+        /* Modificati media query-ul pentru ecran mediu sa fie intre 400 si 650 px. */
+        @media screen and (min-width:400px) and (max-width:650px) {
 
+            /* pentru ecran mediu, 12px */
+            html {
+                font-size: 12px;
+            }
 
-
-        @media screen and (min-width:400px) and (max-width:700px) {
             p.text {
                 float: none;
                 width: 100%;
@@ -133,7 +143,8 @@
                 width: 100vw;
                 position: absolute;
                 left: 0px;
-                top: 1.2rem;
+                /* 1.2rem = 1.2 * top ul.menu = 1em */
+                top: 1em;
                 border-top: 1px solid magenta;
                 border-bottom: 1px solid black;
             }
@@ -153,17 +164,59 @@
             }
         }
 
-        /* ce stil se aplica pentru width-ul ferestrei egal cu 400px? */
+        /* ce stil se aplica pentru width-ul ferestrei egal cu 400px? Ultimul */
+        /* Adaugati si un media query pentru ecran mic. */
         @media screen and (max-width:400px) {
+
+            /* pentru ecran mic va fi 10px */
+            html {
+                font-size: 10px;
+            }
+
             p.text {
                 float: none;
                 width: 100%;
             }
 
+            /* Imaginea in continuare sa apara sub text si nu pe coloana paralela cu textul. */
             figure.img-wrap {
                 width: 100%;
             }
+
+            /* Fiecare optiune de meniu sa se intinda pe toata latimea ecranului */
+            ul.menu>li {
+                width: 100%;
+            }
+
+            /* Submeniul sa se afiseze iar pe verticala, pornind de sub optiunea de meniu corespunzatoare */
+            ul.menu>li:hover ul.submenu {
+                width: 100vw;
+                position: absolute;
+                left: 0px;
+                top: 1em;
+                border-top: 1px solid magenta;
+                border-bottom: 1px solid black;
+            }
+
+            ul.menu>li:nth-of-type(even):hover ul.submenu {
+                background: pink;
+            }
+
+            ul.menu>li:nth-of-type(odd):hover ul.submenu {
+                background: lightblue;
+            }
+
+            ul.menu>li:hover ul.submenu>li {
+                float: left;
+                width: 15%;
+                border: none;
+            }
         }
+
+        /* 
+            Puteti face sa se micsoreze literele de la o dimensiune de ecran la alta printr-o tranzitie CSS?
+            Nu, deoarece tranzitiile functioneaza doar pentru obiecte cu doua stari.
+        */
     </style>
 </head>
 
